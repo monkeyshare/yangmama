@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script   src="webjson.js" type="text/javascript" charset="utf-8"></script>
+    <link  href="web.css" rel="stylesheet"> 
+   <script>
+        window.onload = function(){
+            var allstr = '';
+            var navstr = '<div id="navcat">';
+            for (eachk in webjson){
+                var weblist = webjson[eachk];
+                navstr+='<div class="eachnavcat"><a href="#'+eachk+'" class="navtext">'+eachk+'</a></div>'
+                var strs = '<div class="website-wrapper" id="'+eachk+'"><p class="website-title">'+eachk+'</p></div><div class="detail">';
+                for (i = 0;i<weblist.length;i++){
+            d=weblist[i];
+
+            str = '<a   href="'+d['url']+'" target="_blank" rel="nofollow noopener" class="info">'+
+        '<span class="text-ellip" tabindex="0" style="outline: none;">'+d["name"]+'</span>'+
+        '<span class="add-to-diy"></span></a>';
+        strs += str
+
+            };
+            strs+='</div>';
+            allstr+=strs;
+            };
+            
+            document.getElementById("content").innerHTML = allstr;
+            document.getElementById("nav").innerHTML = navstr;
+        }
+    </script>
+</head>
+<body>
+    <div id="nav">123</div>
+    <div  class="top-bar">
+        <div class="to-others"><a class="topa" href="" target="_blank">常见问题</a><span class="line"></span><a class="topa" href="javascript:;">联系我们</a><span class="line"></span><a class="topa" href="javascript:;">公众号</a><span class="line"></span><a class="topa"  href="" target="_blank" >微博</a><span class="line"></span><a class="topa"  href="" class="" target="_blank">更新日志</a><span class="line"></span><a class="topa"  href="" class="" target="_blank" style="margin-right: 20px;">留言板</a><!----><a class="topa" href="javascript:;" class="login">登录</a>
+        </div>
+    </div>
+    <div id="content"></div>
+
+    
+</body>
